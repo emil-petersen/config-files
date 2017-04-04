@@ -25,3 +25,5 @@
 :let g:ycm_autoclose_preview_window_after_completion = 1
 :set nofileignorecase
 :set nowildignorecase
+:set spell spelllang=en_us
+:hi SpellBad guibg=#ff2929 ctermbg=3
