@@ -1,11 +1,22 @@
 # This is Git's per-user configuration file.
 [user]
-name = Emil Petersen
-email = emil.petersen@thalmic.com
+    name = Emil Petersen
+    email = emil.petersen@thalmic.com
 [push]
-	default = simple
+	default = current
 [color]
 	ui = auto
 [alias]
-; Synchs origins master with the specified upstream remote
-sync = "!f(){ git fetch --all; git co $1/master; git branch -f master; git push origin master; git co master; }; f"
+
+    co = checkout
+    shove = push--force
+    f = fetch
+
+    ; Synchs origins master with the specified upstream remote
+    sync = "!f(){ git fetch --all; git co $1/master; git branch -f master; git push origin master; git co master; }; f"
+    ; Wipes all branches that are not on origin
+    wipe = "!f(){ git fetch --all --prune && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done; }; f"
+    ; Interactive rebase
+    ir = "!f(){ git rebase -i $1; }; f"
+    ; Creates a branch
+    cb = "!f(){ git checkout -b $1 && git push --set-upstream origin $1; }; f"
