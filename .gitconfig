@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+name = Emil Petersen
+email = emil.petersen@thalmic.com
+[push]
+	default = simple
+[color]
+	ui = auto
+[alias]
+; Synchs origins master with the specified upstream remote
+sync = "!f(){ git fetch --all; git co $1/master; git branch -f master; git push origin master; git co master; }; f"
