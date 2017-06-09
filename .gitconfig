@@ -12,6 +12,8 @@
     shove = push--force
     f = fetch
 
+    remaster = "!f(){ branch=$(git status | head -n 1 | awk '{print $3}'); git stash; git checkout master && git pull upstream master && git push && git checkout $branch && git stash pop ; }; f"
+
     ; Synchs origins master with the specified upstream remote
     sync = "!f(){ git fetch --all; git co $1/master; git branch -f master; git push origin master; git co master; }; f"
     ; Wipes all branches that are not on origin
