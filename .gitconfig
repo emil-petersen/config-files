@@ -9,7 +9,7 @@
 [alias]
 
     co = checkout
-    shove = push--force
+    shove = push --force
     f = fetch
 
     remaster = "!f(){ branch=$(git status | head -n 1 | awk '{print $3}'); git stash; git checkout master && git pull upstream master && git push && git checkout $branch && git stash pop ; }; f"
