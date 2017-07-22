@@ -7,7 +7,7 @@
 :set shiftwidth=4
 :set softtabstop=4
 :set ruler
-:set smartindent
+:set nosmartindent
 :set smarttab
 :set textwidth=79
 :set expandtab
